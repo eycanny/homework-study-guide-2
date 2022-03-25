@@ -82,8 +82,14 @@ def find_unique_common_items(items1, items2):
         >>> sorted(find_unique_common_items(["2", "1", 2], [2, 1]))
         [2]
     """
+    item_list = []
 
-    return set()
+    for item in items1:
+        for compared_item in items2:
+            if item == compared_item:
+                item_list.append(item)
+
+    return set(item_list)
 
 
 def get_sum_zero_pairs(numbers):
