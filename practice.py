@@ -161,8 +161,28 @@ def top_chars(phrase):
     Do not count spaces, but count all other characters.
 
     """
+    character_count = {}
 
-    return []
+    # create a dictionary where character is the key and how many times it appears is the value
+    for character in phrase:
+        if character != " ":
+            character_count[character] = character_count.get(character, 0) + 1
+    
+    #search for the highest number of repeats
+    highest_count = 0
+
+    for value in character_count.values():
+        if value > highest_count:
+            highest_count = value
+
+    #search for the character(s) that showed up the most times
+    characters = []
+
+    for key in character_count.keys():
+        if character_count[key] == highest_count:
+            characters.append(key)
+    
+    return characters
 
 #####################################################################
 # You can ignore everything below this.
