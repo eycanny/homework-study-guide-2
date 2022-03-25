@@ -131,8 +131,6 @@ def get_sum_zero_pairs(numbers):
                 break
             i += 1
 
-    # currently returns dupes
-    # need to only return unique pairs
     for zero_pair in sum_zero_pairs:
         zero_pair = tuple(sorted(zero_pair))
         if zero_pair not in unique_zero_pairs:
