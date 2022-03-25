@@ -133,8 +133,12 @@ def get_sum_zero_pairs(numbers):
 
     # currently returns dupes
     # need to only return unique pairs
+    for zero_pair in sum_zero_pairs:
+        zero_pair = tuple(sorted(zero_pair))
+        if zero_pair not in unique_zero_pairs:
+            unique_zero_pairs.add(zero_pair)
 
-    return sum_zero_pairs
+    return unique_zero_pairs
 
 
 def top_chars(phrase):
