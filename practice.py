@@ -119,7 +119,22 @@ def get_sum_zero_pairs(numbers):
         [[-1, 1], [0, 0]]
     """
 
-    return []
+    sum_zero_pairs = []
+    unique_zero_pairs = set()
+
+    for number in numbers:
+        i = 0
+        while i < len(numbers):
+            if (number + numbers[i]) == 0:
+                zero_pair = ([number, numbers[i]])
+                sum_zero_pairs.append(zero_pair)
+                break
+            i += 1
+
+    # currently returns dupes
+    # need to only return unique pairs
+
+    return sum_zero_pairs
 
 
 def top_chars(phrase):
