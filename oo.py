@@ -13,14 +13,20 @@ class Question():
         self.question = question
         self.correct_answer = correct_answer
 
+    def __repr__(self):
+        return f" Question: {self.question}\nAnswer:{self.correct_answer}"
+
 class Exam():
     """Exam data."""
+    questions = []
 
-    def __init__(self, name, questions):
+    def __init__(self, name):
         self.name = name
-        self.questions = []
 
     def add_question(self, question):
         self.questions.append(question)
 
         return self.questions
+
+    def __repr__(self):
+        return f"Question List: {self.questions}"
