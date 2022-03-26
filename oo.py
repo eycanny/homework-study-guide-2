@@ -72,7 +72,7 @@ class Quiz(Exam):
     def administer(self):
         """Administer a quiz"""
 
-        score = super().administer(self)
+        score = super(Quiz, self).administer()
         if score < 50:
             return 0
 
@@ -96,6 +96,22 @@ class StudentExam():
         print(f"You got a score of {score:.2f}%.")
 
 
+class StudentQuiz():
+
+    def __init__(self, student, quiz):
+        self.student = student
+        self.quiz = quiz
+        self.score = None
+    
+    def take_test(self, quiz):
+        self.score = self.quiz.administer()
+
+        if self.score == 1:
+            print("You passed!")
+        else:
+            print("Sorry, you failed!")
+
+
 def example():
     exam1 = Exam("Example")
     
@@ -110,5 +126,7 @@ def example():
 
     student = Student("Jasmine", "Debugger", "0101 Computer Street")
 
-    studentexam1 = StudentExam(student, exam1)
+    jasmine_midterm = StudentExam(student, exam1)
+
+    jasmine_midterm.take_test()
 
