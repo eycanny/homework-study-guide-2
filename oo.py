@@ -16,7 +16,7 @@ class Question():
 
 
     def ask_and_evaluate(self):
-        """Ask user for answer and evaluate answer."""
+        """Ask user for answer to a question and evaluate answer."""
 
         user_answer = input(f"{self.question} > ")
         if user_answer == self.correct_answer:
@@ -49,7 +49,6 @@ class Exam():
         """Administer all questions of an exam."""
 
         correct_answers = 0
-        i = 0
 
         for question in self.questions[::1]:
             answer = question.ask_and_evaluate()
@@ -84,33 +83,32 @@ class Quiz(Exam):
 class StudentExam():
     """Student and exam data"""
 
-    def __init__(self):
-        """Instantiate an object of the StudentExam class"""
-
+    def __init__(self, student, exam):
         self.student = student
         self.exam = exam
+        self.score = None
 
     def take_test(self, exam):
         """Administer exam and assign score to a StudentExam instance"""
 
-        self.score = exam.administer()
+        self.score = self.exam.administer()
 
-        print(f"You got a score of {score:.2f}.")
+        print(f"You got a score of {score:.2f}%.")
 
 
 def example():
     exam1 = Exam("Example")
     
-    set_q = Question('What is the method for adding an element to a set?', '.add()')
-    exam.add_question(set_q)
+    first_q = Question('What is the capital of Alberta?', 'Edmonton')
+    exam.add_question(first_q)
 
-    pwd_q = Question('What does pwd stand for?', 'print working directory')
-    exam.add_question(pwd_q)
+    second_q = Question('Who is the author of Python?', 'Guido Van Rossum')
+    exam.add_question(second_q)
 
     list_q = Question('Python lists are mutable, iterable, and what?', 'ordered')
     exam.add_question(list_q)
 
-    student = Student("FName", "LName", "Address")
+    student = Student("Jasmine", "Debugger", "0101 Computer Street")
 
     studentexam1 = StudentExam(student, exam1)
 
