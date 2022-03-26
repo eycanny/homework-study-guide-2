@@ -33,7 +33,7 @@ class Question():
 
 class Exam():
     """Exam data."""
-    
+
     questions = []
 
     def __init__(self, name):
@@ -47,7 +47,7 @@ class Exam():
 
         self.questions.append(question)
 
-        return self.questions
+        # return self.questions
 
 
     def administer(self):
@@ -63,7 +63,7 @@ class Exam():
         
         correct_percent = float(correct_answers / len(self.questions[::1]) * 100)
 
-        return f"You scored a {correct_percent:.2f}%!"
+        return correct_percent
 
 
 
@@ -73,11 +73,37 @@ class Exam():
         return f"Question List: {self.questions}"
 
 
-##Test##
-# exam = Exam('midterm')
-# set_q = Question('What is the method for adding an element to a set?', '.add()')
-# exam.add_question(set_q)
-# pwd_q = Question('What does pwd stand for?', 'print working directory')
-# exam.add_question(pwd_q)
-# list_q = Question('Python lists are mutable, iterable, and what?', 'ordered')
-# exam.add_question(list_q)
+class StudentExam():
+    """Student and exam data"""
+
+    def __init__(self):
+        """Instantiate an object of the StudentExam class"""
+
+        self.student = student
+        self.exam = exam
+
+    def take_test(self, exam):
+        """Administer exam and assign score to a StudentExam instance"""
+
+        score = exam.administer()
+        self.score = score
+
+        print(f"You got a score of {score}.")
+
+
+def example():
+    exam1 = Exam("Example")
+    
+    set_q = Question('What is the method for adding an element to a set?', '.add()')
+    exam.add_question(set_q)
+
+    pwd_q = Question('What does pwd stand for?', 'print working directory')
+    exam.add_question(pwd_q)
+
+    list_q = Question('Python lists are mutable, iterable, and what?', 'ordered')
+    exam.add_question(list_q)
+
+    student = Student("FName", "LName", "Address")
+
+    studentexam1 = StudentExam(student, exam1)
+
