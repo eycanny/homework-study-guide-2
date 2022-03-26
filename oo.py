@@ -13,6 +13,15 @@ class Question():
         self.question = question
         self.correct_answer = correct_answer
 
+
+    def ask_and_evaluate(self):
+        user_answer = input(f"{self.question} > ")
+        if user_answer == self.correct_answer:
+            return True
+        else:
+            return False
+
+
     def __repr__(self):
         return f" Question: {self.question}\nAnswer:{self.correct_answer}"
 
@@ -32,3 +41,10 @@ class Exam():
 
     def __repr__(self):
         return f"Question List: {self.questions}"
+
+set_q = Question(
+                'What is the method for adding an element to a set?',
+                '.add()'
+                )
+exam = Exam('midterm')
+print(exam.add_question(set_q))
