@@ -1,19 +1,16 @@
 class Student():
-    """Student data."""
+    """A student."""
 
     def __init__(self, first_name, last_name, address):
-        """Instantiate an object with a Student class."""
-
         self.first_name = first_name
         self.last_name = last_name
         self.address = address
 
+
 class Question():
-    """Question data."""
+    """A question in an exam."""
 
     def __init__(self, question, correct_answer):
-        "Instantiate an object with a Question class."
-
         self.question = question
         self.correct_answer = correct_answer
 
@@ -37,8 +34,6 @@ class Exam():
     questions = []
 
     def __init__(self, name):
-        """Instantiate an object with class Exam attributes."""
-
         self.name = name
 
 
@@ -72,6 +67,19 @@ class Exam():
 
         return f"Question List: {self.questions}"
 
+class Quiz(Exam):
+    """Quiz data"""
+
+    def administer(self):
+        """Administer a quiz"""
+
+        score = super().administer(self)
+        if score < 50:
+            return 0
+
+        else:
+            return 1
+
 
 class StudentExam():
     """Student and exam data"""
@@ -85,10 +93,9 @@ class StudentExam():
     def take_test(self, exam):
         """Administer exam and assign score to a StudentExam instance"""
 
-        score = exam.administer()
-        self.score = score
+        self.score = exam.administer()
 
-        print(f"You got a score of {score}.")
+        print(f"You got a score of {score:.2f}.")
 
 
 def example():
