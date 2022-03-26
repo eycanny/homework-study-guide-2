@@ -16,6 +16,11 @@ class Question():
 class Exam():
     """Exam data."""
 
-    def __init__(self, name, questions)
+    def __init__(self, name, questions):
         self.name = name
         self.questions = []
+
+    def add_question(self, question):
+        self.questions.append(question)
+
+        return self.questions
